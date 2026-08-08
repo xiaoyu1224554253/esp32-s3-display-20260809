@@ -1,13 +1,29 @@
-node_modules/
-.DS_Store
-dist/
-build/
-.env
-.env.local
-*.log
+# PlatformIO
 .vscode/
-.idea/
-__pycache__/
+platformio.ini
 *.pyc
-.next/
-coverage/
+__pycache__/
+
+# Build artifacts
+*.elf
+*.bin
+*.hex
+*.o
+*.a
+*.su
+*.d
+*.map
+*.elf.bin
+
+# IDE
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Debug
+*.log
