@@ -34,6 +34,9 @@
 #define PIN_I2S_BCLK     board::PIN_I2S_BCLK
 #define PIN_I2S_DOUT     board::PIN_I2S_DOUT
 #define PIN_I2S_LRCK     board::PIN_I2S_LRCK
+#define PIN_I2S_MCLK     board::PIN_I2S_MCLK
+#define PIN_I2S_DIN      board::PIN_I2S_DIN
+#define PIN_AUDIO_EN     board::PIN_AUDIO_EN
 
 // Other
 #define PIN_WS2812       board::PIN_WS2812
