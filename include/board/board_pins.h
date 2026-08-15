@@ -46,11 +46,9 @@
 #define PIN_BAT_ADC      (-1)
 #define PIN_HALL_OUT     (-1)
 
-// 触摸 I2C（FT6336G）
-#define PIN_TOUCH_SDA    (16)
-#define PIN_TOUCH_SCL    (15)
-#define PIN_I2C_SDA      (16)
-#define PIN_I2C_SCL      (15)
+// 触摸 I2C（FT6336G）注意：SDA/SCL 通过 board::PIN_TOUCH_SDA 等命名空间常量访问，
+// 不能定义同名宏，否则 board::PIN_TOUCH_SDA 会被展开成 board::(16) 导致编译错误。
+// 由 board_pins_pcb1_mcp23017.h 提供：board::PIN_TOUCH_SDA/SCL、board::PIN_I2C_SDA/SCL
 
 // 按键
 #define PIN_KEY_BOOT     (0)
