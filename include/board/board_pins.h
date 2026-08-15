@@ -14,6 +14,7 @@
 #define PIN_TFT_CS       board::PIN_TFT_CS
 #define PIN_TFT_DC       board::PIN_TFT_DC
 #define PIN_TFT_RST      (-1)   // TFT_RST 已迁移到 MCP23017 B3
+#define PIN_TFT_BL       board::PIN_TFT_BL
 
 #define PIN_RC522_CS     board::PIN_NFC_CS
 #define PIN_RC522_RST    (-1)   // RC522_RST 已迁移到 MCP23017 B2
