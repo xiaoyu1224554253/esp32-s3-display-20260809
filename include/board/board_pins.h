@@ -3,44 +3,54 @@
 #include "board/board_pins_pcb1_mcp23017.h"
 
 // ============================================================
-// 兼容旧代码的宏名：实际引脚来自 PCB1 MCP23017 版新表
+// 兼容旧代码的宏名：直接使用数值，避免预处理器 #if 表达式
+// 展开出 "board::xxx" 导致 ":: not valid in preprocessor" 错误
 // ============================================================
 
 // UI SPI: TFT + RC522 共用
-#define PIN_SPI_UI_SCK   board::PIN_SPI_CLK
-#define PIN_SPI_UI_MISO  board::PIN_SPI_MISO
-#define PIN_SPI_UI_MOSI  board::PIN_SPI_MOSI
+#define PIN_SPI_UI_SCK   (12)
+#define PIN_SPI_UI_MISO  (-1)
+#define PIN_SPI_UI_MOSI  (11)
 
-#define PIN_TFT_CS       board::PIN_TFT_CS
-#define PIN_TFT_DC       board::PIN_TFT_DC
+#define PIN_TFT_CS       (10)
+#define PIN_TFT_DC       (46)
 #define PIN_TFT_RST      (-1)   // TFT_RST 已迁移到 MCP23017 B3
-#define PIN_TFT_BL       board::PIN_TFT_BL
+#define PIN_TFT_BL       (45)
 
-#define PIN_RC522_CS     board::PIN_NFC_CS
+#define PIN_RC522_CS     (-1)
 #define PIN_RC522_RST    (-1)   // RC522_RST 已迁移到 MCP23017 B2
-#define PIN_RC522_IRQ    board::PIN_NFC_IRQ
+#define PIN_RC522_IRQ    (-1)
 
 // SD SPI
-#define PIN_SPI_SD_SCK   board::PIN_SD_SCK
-#define PIN_SPI_SD_MISO  board::PIN_SD_MISO
-#define PIN_SPI_SD_MOSI  board::PIN_SD_MOSI
-#define PIN_SD_CS        board::PIN_SD_CS
+#define PIN_SPI_SD_SCK   (38)
+#define PIN_SPI_SD_MISO  (39)
+#define PIN_SPI_SD_MOSI  (40)
+#define PIN_SD_CS        (47)
 
 // Encoder / keys on ESP32
-#define PIN_EC06_A       board::PIN_EC06_A
-#define PIN_EC06_B       board::PIN_EC06_B
-#define PIN_POWER_PLAY   board::PIN_POWER_PLAY
+#define PIN_EC06_A       (-1)
+#define PIN_EC06_B       (-1)
+#define PIN_POWER_PLAY   (0)
 
 // I2S
-#define PIN_I2S_BCLK     board::PIN_I2S_BCLK
-#define PIN_I2S_DOUT     board::PIN_I2S_DOUT
-#define PIN_I2S_LRCK     board::PIN_I2S_LRCK
-#define PIN_I2S_MCLK     board::PIN_I2S_MCLK
-#define PIN_I2S_DIN      board::PIN_I2S_DIN
-#define PIN_AUDIO_EN     board::PIN_AUDIO_EN
+#define PIN_I2S_BCLK     (5)
+#define PIN_I2S_DOUT     (6)
+#define PIN_I2S_LRCK     (7)
+#define PIN_I2S_MCLK     (4)
+#define PIN_I2S_DIN      (8)
+#define PIN_AUDIO_EN     (1)
 
 // Other
-#define PIN_WS2812       board::PIN_WS2812
-#define PIN_POWER_CTRL   board::PIN_POWER_CTRL
-#define PIN_BAT_ADC      board::PIN_BAT_ADC
-#define PIN_HALL_OUT     board::PIN_HALL_OUT
+#define PIN_WS2812       (42)
+#define PIN_POWER_CTRL   (-1)
+#define PIN_BAT_ADC      (-1)
+#define PIN_HALL_OUT     (-1)
+
+// 触摸 I2C（FT6336G）
+#define PIN_TOUCH_SDA    (16)
+#define PIN_TOUCH_SCL    (15)
+#define PIN_I2C_SDA      (16)
+#define PIN_I2C_SCL      (15)
+
+// 按键
+#define PIN_KEY_BOOT     (0)
