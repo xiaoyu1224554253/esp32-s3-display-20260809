@@ -1,29 +1,22 @@
-# PlatformIO
-.vscode/
-platformio.ini
-*.pyc
-__pycache__/
+# PlatformIO build directory
+.pio/
 
-# Build artifacts
-*.elf
-*.bin
-*.hex
-*.o
-*.a
-*.su
-*.d
-*.map
-*.elf.bin
+# TF card structure folder
+TF卡结构/
 
-# IDE
-.idea/
-*.swp
-*.swo
-*~
+# 原始压缩包与解压目录（非项目源码）
+AppStateV2.5.0round23b-radio-backend-no-external-dep-main/
+*.zip
 
-# OS
-.DS_Store
-Thumbs.db
+# 构建日志与下载脚本
+build_log*.txt
+toolchain_dl/
+compile_commands.json
+releases.html
 
-# Debug
-*.log
+# 屏幕截图
+屏幕截图*.png
+
+# 原型/测试
+_legacy_display_test/
+music_player_ui_prototype.html

@@ -1,0 +1,50 @@
+name: PlatformIO CI
+
+on:
+  push:
+    branches: [ master, main, dev ]
+  pull_request:
+    branches: [ master, main, dev ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Cache PlatformIO
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.cache/pip
+          ~/.platformio
+        key: ${{ runner.os }}-PlatformIO-${{ hashFiles('**/platformio.ini') }}
+        restore-keys: |
+          ${{ runner.os }}-PlatformIO-
+
+    - name: Setup PlatformIO
+      uses: platformio/action-setup-platformio@v2
+      with:
+        version: latest
+
+    - name: Build firmware
+      run: pio run
+
+    - name: Upload firmware artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: esp32-s3-firmware-${{ github.sha }}
+        path: |
+          .pio/build/esp32-s3-devkitc-1/firmware.bin
+          .pio/build/esp32-s3-devkitc-1/partitions.bin
+          .pio/build/esp32-s3-devkitc-1/bootloader.bin
+        retention-days: 30
+        if-no-files-found: error
+
+    - name: List build artifacts
+      run: |
+        echo "Build artifacts:"
+        find .pio/build/esp32-s3-devkitc-1/ -type f | head -50
