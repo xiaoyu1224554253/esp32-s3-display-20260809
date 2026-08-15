@@ -25,10 +25,13 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-PlatformIO-
 
-    - name: Setup PlatformIO
-      uses: platformio/action-setup-platformio@v2
+    - name: Set up Python
+      uses: actions/setup-python@v5
       with:
-        version: latest
+        python-version: '3.11'
+
+    - name: Install PlatformIO
+      run: pip install --upgrade platformio
 
     - name: Build firmware
       run: pio run
